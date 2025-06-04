@@ -5,12 +5,12 @@ A containerized load balancer cluster using Docker Compose, Nginx, and Express.j
 ## 🏗️ Architecture
 
 ```
-Internet/Client
-       ↓
-   Load Balancer (Nginx)
-       ↓
-   ┌─────────┬─────────┐
-   ↓         ↓         ↓
+  Internet/Client
+        ↓
+    Load Balancer (Nginx)
+        ↓
+   ┌─────────┐
+   ↓         ↓
 Backend1   Backend2
 (Express)  (Express)
 ```
