@@ -1,5 +1,6 @@
 services:
     backend1:
+        container_name: backend1
         build:
             context: ./backend1
             dockerfile: Dockerfile.dev
@@ -8,6 +9,7 @@ services:
                 ipv4_address: 172.30.0.2
 
     backend2:
+        container_name: backend2
         build:
             context: ./backend2
             dockerfile: Dockerfile.dev
@@ -16,6 +18,7 @@ services:
                 ipv4_address: 172.30.0.3
 
     load-balancer:
+        container_name: load-balancer
         build:
             context: ./load-balancer
             dockerfile: Dockerfile.dev
@@ -24,6 +27,15 @@ services:
         networks:
             custom_net:
                 ipv4_address: 172.30.0.4
+
+    dozzle:
+        container_name: dozzle
+        image: amir20/dozzle:latest
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            custom_net:
+                ipv4_address: 172.30.0.5
 
 networks:
     custom_net:
