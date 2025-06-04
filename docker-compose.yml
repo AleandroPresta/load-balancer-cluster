@@ -3,8 +3,6 @@ services:
         build:
             context: ./backend1
             dockerfile: Dockerfile.dev
-        ports:
-            - "3001:3000"
         networks:
             custom_net:
                 ipv4_address: 172.30.0.2
@@ -13,8 +11,6 @@ services:
         build:
             context: ./backend2
             dockerfile: Dockerfile.dev
-        ports:
-            - "3002:3000"
         networks:
             custom_net:
                 ipv4_address: 172.30.0.3
