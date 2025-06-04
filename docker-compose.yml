@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    backend1:
+        build:
+            context: ./backend1
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3001:3001"
+        networks:
+            custom_net:
+                ipv4_address: 172.20.0.2
+
+    backend2:
+        build:
+            context: ./backend2
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3002:3002"
+        networks:
+            custom_net:
+                ipv4_address: 172.20.0.3
+
+networks:
+    custom_net:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.20.0.0/16
